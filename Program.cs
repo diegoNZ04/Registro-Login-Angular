@@ -7,6 +7,7 @@
 // builder
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
@@ -28,21 +29,24 @@
 // app
     var app = builder.Build();
 
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+    
     // config frontend
-        app.UseSpa(spa =>
-        {
-            spa.Options.SourcePath = "ClientApp";
-            spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-
-            if (app.Environment.IsDevelopment())
-            {
-                spa.UseAngularCliServer(npmScript: "start");
-            }
-        });
+    app.UseCors(options =>
+    options.WithOrigins("http://localhost:4200")
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
     // others
-        app.UseHttpsRedirection();
+    app.MapControllers();
 
-        app.UseAuthorization();
+    app.UseHttpsRedirection();
 
-        app.Run();
+    app.UseAuthorization();
+
+    app.Run();
