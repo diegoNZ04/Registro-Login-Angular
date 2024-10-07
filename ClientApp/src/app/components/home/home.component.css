@@ -1,16 +1,4 @@
-
-
-header{
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-  margin: auto;
-  padding: 15px;
-  box-shadow: 3px 3px 10px;
-  background-color:#002349;;
+.jumbotron {
+  display: grid;
+  place-items: center;
 }
