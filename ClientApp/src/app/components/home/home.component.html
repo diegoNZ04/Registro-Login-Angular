@@ -1,31 +1,86 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/home-component" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+        <a
+          class="nav-link"
+          routerLink="/home-component"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Home <span class="sr-only">(current)</span></a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register-component" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+        <a
+          class="nav-link"
+          routerLink="/register-component"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Register</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login-component" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+        <a
+          class="nav-link"
+          routerLink="/login-component"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Login</a
+        >
       </li>
     </ul>
   </div>
 </nav>
+<header>
+  <div class="wellcome">
+    <section>
+      <h1 class="display-4">Bem-vindo Usuário!</h1>
+      <p class="lead">
+        Este é um projeto front-end de estudo usando o Angular. Este projeto tem
+        o propósito de ser um modelo de sistema de registro e login.
+      </p>
+    </section>
+    <hr />
+    <p>Se registre ou faça o login pela navbar ou pelos botões abaixo!</p>
+  </div>
+</header>
 
-
-<div class="jumbotron">
-  <h1 class="display-4">Bem-vindo ao Aspangular!</h1>
-  <p class="lead">Aspangular é um projeto de estudo voltada a integração do .NET C# e do framework Angular.</p>
-  <hr class="my-4">
-  <p>Se registre ou faça o login pela navbar ou pelos botões abaixo!</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" routerLink="/register-component" routerLinkActive="active" ariaCurrentWhenActive="page" role="button">Criar Nova Conta</a><br><br>
-    <a class="btn btn-secondary btn-lg" routerLink="/login-component" routerLinkActive="active" ariaCurrentWhenActive="page" role="button">Logar</a>
-  </p>
-</div>
+<main>
+  <div class="button-container">
+    <section class="button-section">
+      <div class="button">
+        <a
+          class="btn btn-primary btn-lg"
+          routerLink="/register-component"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          role="button"
+          >Criar Nova Conta</a
+        >
+      </div>
+      <br />
+      <div class="button">
+        <a
+          class="btn btn-secondary btn-lg"
+          routerLink="/login-component"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          role="button"
+          >Logar</a
+        >
+      </div>
+    </section>
+  </div>
+</main>

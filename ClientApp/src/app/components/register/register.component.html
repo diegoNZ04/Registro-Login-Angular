@@ -1,108 +1,144 @@
 <header>
   <h1>Faça Seu Cadastro</h1>
 </header>
-<br>
+<br />
 <div class="form-container">
-<form [formGroup]="formRegister">
-
+  <form [formGroup]="formRegister">
     <!-- EMAIL -->
     <div class="form-row">
       <div class="form-group">
         <!-- EMAIL AWARNING -->
-        @if (formRegister.get('email').hasError('required') && formRegister.get('email').touched) {
-          <p class="alert alert-warning">O campo email é obrigatório.</p>
-         }
+        @if (formRegister.get('email').hasError('required') &&
+        formRegister.get('email').touched) {
+        <p class="alert alert-warning">O campo email é obrigatório.</p>
+        } @if (formRegister.get('email').hasError('minlength') &&
+        formRegister.get('email').touched) {
+        <p class="alert alert-warning">
+          O campo email precisa conter pelo menos 8 caracteres.
+        </p>
+        }
 
-         @if (formRegister.get('email').hasError('minlength') && formRegister.get('email').touched) {
-          <p class="alert alert-warning">O campo email precisa conter pelo menos 8 caracteres.</p>
-         }
-         <!-- EMAIL INPUT -->
+        <!-- EMAIL INPUT -->
         <label for="inputEmail">Endereço de Email</label>
-          <input name="inputEmail" type="email" class="form-control" formControlName="email" id="inputEmail4" placeholder="Insira Seu Email" minlength="8" required>
-         
-          <!-- EMAIL REPEAT AWARNING -->
-          @if (formRegister.get('emailRepeat') != formRegister.get('email')) {
-            <p class="alert alert-warning">Os campos de email devem se coincidir.</p>
-           }
-
-           <!-- EMAIL REPEAT INPUT -->
-          <label for="inputEmailRepeat">Repita Seu Email</label>
-          <input name="inputEmailRepeat" type="email" class="form-control" formControlName="emailRepeat" id="inputEmailRepeat" placeholder="Repita Seu Email" minlength="8" required>
+        <input
+          name="inputEmail"
+          type="email"
+          class="form-control"
+          formControlName="email"
+          id="inputEmail4"
+          placeholder="Insira Seu Email"
+          minlength="8"
+          required
+        />
       </div>
+    </div>
 
-      <!-- PASSWORD -->
+    <!-- PASSWORD -->
+    <div class="form-row">
       <div class="form-group">
         <!-- PASSWORD AWARNING -->
-        @if (formRegister.get('password').hasError('required') && formRegister.get('password').touched) {
-          <p class="alert alert-warning">O campo senha é obrigatório.</p>
-         }
-
-         @if (formRegister.get('password').hasError('minlength') && formRegister.get('password').touched) {
-          <p class="alert alert-warning">O campo senha precisa conter pelo menos 8 caracteres.</p>
-         }
-         <!-- PASSWORD INPUT -->
+        @if (formRegister.get('password').hasError('required') &&
+        formRegister.get('password').touched) {
+        <p class="alert alert-warning">O campo senha é obrigatório.</p>
+        } @if (formRegister.get('password').hasError('minlength') &&
+        formRegister.get('password').touched) {
+        <p class="alert alert-warning">
+          O campo senha precisa conter pelo menos 8 caracteres.
+        </p>
+        }
+        <!-- PASSWORD INPUT -->
         <label for="inputPassword">Senha</label>
-          <input name="inputPassword" type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Insira Sua Senha" minlength="8" maxlength="12" required>
-
-          <!-- PASSWORD REPEAT AWARNING -->
-          @if (formRegister.get('passwordRepeat') != formRegister.get('password')) {
-            <p class="alert alert-warning">Os campos de senha devem se coincidir.</p>
-           }
-          <!-- PASSWORD REPEAT INPUT -->
-          <label for="inputPasswordRepeat">Repita Sua Senha</label>
-          <input name="inputPasswordRepeat" type="password" class="form-control" formControlName="passwordRepeat" id="inputPasswordRepeat" placeholder="Repita Sua Senha" minlength="8" maxlength="12" required>
+        <input
+          name="inputPassword"
+          type="password"
+          class="form-control"
+          formControlName="password"
+          id="inputPassword"
+          placeholder="Insira Sua Senha"
+          minlength="8"
+          maxlength="12"
+          required
+        />
       </div>
+    </div>
 
-      <!-- ADDRESS -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="inputAddress">Endereço</label>
-          <input name="inputAdress" type="text" class="form-control" formControlName="address" id="inputAddress" placeholder="Insira Seu Endereço" required>
+    <!-- ADDRESS -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inputAddress">Endereço</label>
+        <input
+          name="inputAdress"
+          type="text"
+          class="form-control"
+          formControlName="address"
+          id="inputAddress"
+          placeholder="Insira Seu Endereço"
+          required
+        />
 
-          <label for="inputComplementAddress">Complemento do Endereço</label>
-        <input name="inputComplementAddress" type="text" class="form-control" formControlName="complement" id="inputComplementAddress" placeholder="Insira o Complemento Do Seu Endereço">
+        <label for="inputComplementAddress">Complemento do Endereço</label>
+        <input
+          name="inputComplementAddress"
+          type="text"
+          class="form-control"
+          formControlName="complement"
+          id="inputComplementAddress"
+          placeholder="Insira o Complemento Do Seu Endereço"
+        />
       </div>
+    </div>
 
-      <!-- CITY/STATE -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="inputCity">Cidade</label>
-          <input name="inputCity" type="text" class="form-control" formControlName="city" id="inputCity" placeholder="Insira Sua Cidade" required>
-
-          <label for="inputState">Estado</label>
-          <select id="inputState" class="form-control">
-            <option selected>Escolha Seu Estado</option>
-            <option>...</option>
-          </select>
-
-          <input name="inputState" class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      </div>
-    </div><br>
-    <div class="form-group">
+    <!-- CITY/STATE -->
+    <div class="form-row">
+      <div class="form-group">
         <label for="inputCity">Cidade</label>
-        <input name="inputCity" type="text" class="form-control" formControlName="city" id="inputCity" placeholder="Insira Sua Cidade" required>
-
-        <label for="inputState">Estado</label>
-        <select id="inputState" class="form-control">
-          <option selected>Escolha Seu Estado</option>
-          <option>...</option>
-        </select>
-
-        <!-- CHECK -->
-        <input name="inputCheck" class="form-check-input" type="checkbox" id="gridCheck" required>
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+        <input
+          name="inputCity"
+          type="text"
+          class="form-control"
+          formControlName="city"
+          id="inputCity"
+          placeholder="Insira Sua Cidade"
+          required
+        />
       </div>
+    </div>
 
-      <!-- BUTTON -->
-      <button type="submit" class="btn btn-primary" role="button">Cadastre-se</button>
+    <label for="inputState">Estado</label>
+    <select id="inputState" class="form-control">
+      <option selected>Escolha Seu Estado</option>
+      <option>Acre (AC)</option>
+      <option>Alagoas (AL)</option>
+      <option>Amapá (AP)</option>
+      <option>Amazonas (AM)</option>
+      <option>Bahia (BA)</option>
+      <option>Ceará (CE)</option>
+      <option>Distrito Federal (DF)</option>
+      <option>Espírito Santo (ES)</option>
+      <option>Goiás (GO)</option>
+      <option>Maranhão (MA)</option>
+      <option>Mato Grosso (MT)</option>
+      <option>Mato Grosso do Sul (MS)</option>
+      <option>Minas Gerais (MG)</option>
+      <option>Pará (PA)</option>
+      <option>Paraíba (PB)</option>
+      <option>Paraná (PR)</option>
+      <option>Pernambuco (PE)</option>
+      <option>Piauí (PI)</option>
+      <option>Rio de Janeiro (RJ)</option>
+      <option>Rio Grande do Norte (RN)</option>
+      <option>Rio Grande do Sul (RS)</option>
+      <option>Rondônia (RO)</option>
+      <option>Roraima (PR)</option>
+      <option>Santa Catarina (SC)</option>
+      <option>São Paulo (SP)</option>
+      <option>Sergite (SE)</option>
+      <option>Tocantins (TO)</option>
+    </select>
+    <br />
+    <!-- BUTTON -->
+    <button type="submit" class="btn btn-primary" role="button">
+      Cadastre-se
+    </button>
   </form>
 </div>
-
-
