@@ -1,5 +1,5 @@
 <header>
-  <h1>Faça Seu Cadastro</h1>
+  <h1>Faça Seu Cadastro!</h1>
 </header>
 <br />
 <div class="form-container">
@@ -7,6 +7,17 @@
     <!-- EMAIL -->
     <div class="form-row">
       <div class="form-group">
+        <!-- EMAIL INPUT -->
+        <label>Email *</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Insira Seu Email"
+          minlength="8"
+          required
+        />
+
         <!-- EMAIL AWARNING -->
         @if (formRegister.get('email').hasError('required') &&
         formRegister.get('email').touched) {
@@ -16,26 +27,30 @@
         <p class="alert alert-warning">
           O campo email precisa conter pelo menos 8 caracteres.
         </p>
+        } @if (formRegister.get('email').hasError('maxlength') &&
+        formRegister.get('email').touched) {
+        <p class="alert alert-warning">
+          O campo email pode conter no máximo 100 caracteres.
+        </p>
         }
-
-        <!-- EMAIL INPUT -->
-        <label for="inputEmail">Endereço de Email</label>
-        <input
-          name="inputEmail"
-          type="email"
-          class="form-control"
-          formControlName="email"
-          id="inputEmail4"
-          placeholder="Insira Seu Email"
-          minlength="8"
-          required
-        />
       </div>
     </div>
 
     <!-- PASSWORD -->
     <div class="form-row">
       <div class="form-group">
+        <!-- PASSWORD INPUT -->
+        <label for="inputPassword">Senha *</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Insira Sua Senha"
+          minlength="8"
+          maxlength="12"
+          required
+        />
+
         <!-- PASSWORD AWARNING -->
         @if (formRegister.get('password').hasError('required') &&
         formRegister.get('password').touched) {
@@ -45,100 +60,141 @@
         <p class="alert alert-warning">
           O campo senha precisa conter pelo menos 8 caracteres.
         </p>
+        } @if (formRegister.get('password').hasError('maxlength') &&
+        formRegister.get('password').touched) {
+        <p class="alert alert-warning">
+          O campo senha pode conter no máximo 12 caracteres.
+        </p>
         }
-        <!-- PASSWORD INPUT -->
-        <label for="inputPassword">Senha</label>
-        <input
-          name="inputPassword"
-          type="password"
-          class="form-control"
-          formControlName="password"
-          id="inputPassword"
-          placeholder="Insira Sua Senha"
-          minlength="8"
-          maxlength="12"
-          required
-        />
       </div>
     </div>
 
     <!-- ADDRESS -->
     <div class="form-row">
       <div class="form-group">
-        <label for="inputAddress">Endereço</label>
+        <!-- ADDRESS INPUT -->
+        <label>Endereço *</label>
         <input
-          name="inputAdress"
           type="text"
           class="form-control"
           formControlName="address"
-          id="inputAddress"
           placeholder="Insira Seu Endereço"
+          maxlength="100"
           required
         />
 
-        <label for="inputComplementAddress">Complemento do Endereço</label>
+        <!-- ADDRESS AWARING -->
+        @if (formRegister.get('address').hasError('required') &&
+        formRegister.get('address').touched) {
+        <p class="alert alert-warning">O campo endereço é obrigatório.</p>
+        } @if (formRegister.get('address').hasError('maxlength') &&
+        formRegister.get('address').touched) {
+        <p class="alert alert-warning">
+          O campo endereço pode conter no máximo 100 caracteres.
+        </p>
+        }
+      </div>
+    </div>
+
+    <!-- COMPLEMENT -->
+    <div class="form-row">
+      <div class="form-group">
+        <!-- COMPLEMENT INPUT -->
+        <label>Complemento</label>
         <input
-          name="inputComplementAddress"
           type="text"
           class="form-control"
           formControlName="complement"
-          id="inputComplementAddress"
-          placeholder="Insira o Complemento Do Seu Endereço"
+          placeholder="Insira o Complemento do Endereço"
+          maxlength="100"
         />
+
+        <!-- COMPLEMENT AWARING -->
+        @if (formRegister.get('complement').hasError('maxlength') &&
+        formRegister.get('complement').touched) {
+        <p class="alert alert-warning">
+          O campo endereço pode conter no máximo 100 caracteres.
+        </p>
+        }
       </div>
     </div>
 
-    <!-- CITY/STATE -->
+    <!-- CITY -->
     <div class="form-row">
       <div class="form-group">
-        <label for="inputCity">Cidade</label>
+        <!-- CITY INPUT -->
+        <label>Cidade *</label>
         <input
-          name="inputCity"
           type="text"
           class="form-control"
           formControlName="city"
-          id="inputCity"
           placeholder="Insira Sua Cidade"
+          maxlength="100"
           required
         />
+
+        <!-- CITY AWARING -->
+        @if (formRegister.get('city').hasError('required') &&
+        formRegister.get('city').touched) {
+        <p class="alert alert-warning">O campo cidade é obrigatório.</p>
+        } @if (formRegister.get('city').hasError('maxlength') &&
+        formRegister.get('city').touched) {
+        <p class="alert alert-warning">
+          O campo cidade pode conter no máximo 100 caracteres.
+        </p>
+        }
       </div>
     </div>
 
-    <label for="inputState">Estado</label>
-    <select id="inputState" class="form-control">
-      <option selected>Escolha Seu Estado</option>
-      <option>Acre (AC)</option>
-      <option>Alagoas (AL)</option>
-      <option>Amapá (AP)</option>
-      <option>Amazonas (AM)</option>
-      <option>Bahia (BA)</option>
-      <option>Ceará (CE)</option>
-      <option>Distrito Federal (DF)</option>
-      <option>Espírito Santo (ES)</option>
-      <option>Goiás (GO)</option>
-      <option>Maranhão (MA)</option>
-      <option>Mato Grosso (MT)</option>
-      <option>Mato Grosso do Sul (MS)</option>
-      <option>Minas Gerais (MG)</option>
-      <option>Pará (PA)</option>
-      <option>Paraíba (PB)</option>
-      <option>Paraná (PR)</option>
-      <option>Pernambuco (PE)</option>
-      <option>Piauí (PI)</option>
-      <option>Rio de Janeiro (RJ)</option>
-      <option>Rio Grande do Norte (RN)</option>
-      <option>Rio Grande do Sul (RS)</option>
-      <option>Rondônia (RO)</option>
-      <option>Roraima (PR)</option>
-      <option>Santa Catarina (SC)</option>
-      <option>São Paulo (SP)</option>
-      <option>Sergite (SE)</option>
-      <option>Tocantins (TO)</option>
-    </select>
-    <br />
-    <!-- BUTTON -->
-    <button type="submit" class="btn btn-primary" role="button">
-      Cadastre-se
-    </button>
+    <!-- STATE -->
+    <div class="form-row">
+      <div class="form-group">
+        <!-- STATE SELECT -->
+        <label>Estado *</label>
+        <select class="form-control" formControlName="state" required>
+          <option value="" disabled selected>Escolha o Estado:</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="PR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+
+        <!-- STATE AWARNING -->
+        @if (formRegister.get('state').hasError('required') &&
+        formRegister.get('state').touched) {
+        <p class="alert alert-warning">O campo estado é obrigatório.</p>
+        }
+      </div>
+    </div>
   </form>
+</div>
+<br />
+<div class="btn-container">
+  <!-- BUTTON -->
+  <button type="submit" class="btn btn-primary btn-lg register" role="button">
+    Cadastre-se
+  </button>
 </div>

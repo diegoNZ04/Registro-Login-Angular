@@ -19,7 +19,7 @@ import { User } from '../../Models/User';
 export class RegisterComponent {
   // forms Validation
   formRegister = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    email: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(100)]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -27,11 +27,11 @@ export class RegisterComponent {
     ]),
     address: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(80),
+      Validators.maxLength(100),
     ]),
-    complement: new FormControl(''),
-    city: new FormControl('', [Validators.required]),
+    complement: new FormControl('', [Validators.maxLength(100)]),
+    city: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    state: new FormControl('', [Validators.required])
   });
 
   // User Vetor

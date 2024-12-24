@@ -4,4 +4,5 @@ export class User {
   address: string;
   complement: string;
   city: string;
+  state: string;
 }
